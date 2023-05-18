@@ -1,0 +1,21 @@
+.header-menu-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 calc-rem(34px);
+  gap: calc-rem(12px);
+  border: none;
+  font-size: calc-rem(18px);
+  text-decoration: none;
+  color: $cWhite;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+
+  &__text {
+    position: relative;
+    white-space: nowrap;
+    margin-top: calc-rem(3px);
+  }
+}

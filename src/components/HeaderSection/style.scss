@@ -1,0 +1,25 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--zHeader);
+  pointer-events: none;
+  background-color: transparent;
+
+  &__inner {
+    @include size(100%, var(--hHeader));
+    position: relative;
+    background-color: red;
+    pointer-events: auto;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    column-gap: 1%;
+    max-width: calc(1820px + var(--gContent) * 2);
+  }
+}

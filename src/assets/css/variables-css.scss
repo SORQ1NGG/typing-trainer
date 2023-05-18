@@ -1,0 +1,10 @@
+:root {
+  //Common
+  --hHeader: #{calc-rem(90px)};
+  --vh: 1vh;
+  --zHeader: 100;
+
+  // Sizes
+  --gContent: #{$gContent};
+  --rem: #{$baseRem};
+}
