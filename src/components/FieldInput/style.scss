@@ -1,0 +1,78 @@
+.field {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  height: 85px;
+  background-color: #fff;
+  margin-top: 25px;
+  font-size: 27px;
+  line-height: 30px;
+  color: #4f4f4f;
+  border-radius: 10px;
+  border-top: 1px solid #d1d1d1;
+
+  &__inner {
+    width: 100%;
+    height: 85px;
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+  }
+
+  &__input {
+    background-color: transparent;
+    padding: 0 20px 0 20px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: none;
+    margin: 0;
+    outline: 0;
+    top: -10px;
+    overflow: hidden;
+    color: transparent;
+    height: 1px;
+    z-index: 5;
+
+    &-text {
+      position: relative;
+      display: inline;
+      z-index: 16;
+      top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 35px;
+    }
+
+    &-str {
+      white-space: pre;
+      display: inline;
+      color: #4f4f4f;
+      letter-spacing: .03ex;
+    }
+
+    &-cursor {
+      &:before {
+        content: "";
+        display: none;
+        position: absolute;
+        left: -332px;
+        top: -2px;
+        width: 1px;
+        height: 36px;
+        background: #000;
+        opacity: 1;
+        z-index: 3;
+
+      }
+      &:before {
+        display: inline-block;
+        animation: cursor 1s infinite step-end;
+      }
+    }
+  }
+}
+
+@keyframes cursor {
+  50% { background: transparent; }
+}

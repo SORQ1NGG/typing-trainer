@@ -1,4 +1,5 @@
 .content-container {
+  position: relative;
   width: 100%;
   max-width: calc($mwContent + var(--gContent) * 2);
   margin-left: auto;

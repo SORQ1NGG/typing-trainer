@@ -1,0 +1,7 @@
+.footer {
+  margin-top: auto;
+  &__inner {
+    padding: calc-rem(45px) calc-rem(30px) calc-rem(37px);
+    background-color: #222;
+  }
+}

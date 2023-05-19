@@ -10,7 +10,7 @@
   &__inner {
     @include size(100%, var(--hHeader));
     position: relative;
-    background-color: red;
+    background-color: #FFE4B5;
     pointer-events: auto;
   }
 

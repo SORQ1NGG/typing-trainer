@@ -5,13 +5,18 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: var(--rem)
+}
+
+h1, p {
+  margin: 0;
+  padding: 0;
 }
 
 body {
   min-width: 375px;
   margin: 0;
-  background-color: #00C2FF;
+  background-color: #D3D3D3;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -20,7 +25,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
-  color: #fff;
+  color: #F0FFFF;
   cursor: default;
 }
 
@@ -35,4 +40,9 @@ body {
   flex-grow: 1;
   padding-top: calc-rem(36px);
   padding-bottom: calc-rem(64px);
+}
+
+.img {
+  height: 30%;
+  width: 30%;
 }

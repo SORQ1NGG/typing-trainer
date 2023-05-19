@@ -18,4 +18,10 @@
     white-space: nowrap;
     margin-top: calc-rem(3px);
   }
+
+  &--active {
+    color: #fff;
+    opacity: 0.8;
+    background-color: #0e509e;
+  }
 }
