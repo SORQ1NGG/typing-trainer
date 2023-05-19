@@ -1,11 +1,11 @@
 <script>
 export default {
-    name: 'WorkoutPage',
+    name: 'TestTyping',
 };
 </script>
 
 <template>
     <div>
-        Workout page
+        Test Typing Keyboard
     </div>
 </template>

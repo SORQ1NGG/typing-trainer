@@ -7,7 +7,9 @@ export default {
 <template>
     <footer class="footer">
         <div class="footer__inner">
-            Footer
+            Keyboard Online
         </div>
     </footer>
 </template>
+
+<style src="./style.scss" lang="scss" scoped />

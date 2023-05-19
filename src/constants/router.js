@@ -1,5 +1,6 @@
 export const ROUTE_NAMES = {
     MAIN: 'Main',
-    LESSONS: 'Lessons',
-    WORKOUT: 'Workout',
+    TYPING_TEST: 'TypingTest',
+    TYPING_TUTOR: 'TypingTutor',
+    TEST_TYPING: 'TestTyping',
 };

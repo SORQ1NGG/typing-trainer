@@ -15,15 +15,20 @@ const items = [
         to: { name: ROUTE_NAMES.MAIN },
     },
     {
-        id: 'lessons',
-        text: 'Уроки',
-        to: { name: ROUTE_NAMES.LESSONS },
+        id: 'typing-test',
+        text: 'Тестирование',
+        to: { name: ROUTE_NAMES.TYPING_TEST },
+    },
+    {
+        id: 'typing-tutor',
+        text: 'Тренажер',
+        to: { name: ROUTE_NAMES.TYPING_TUTOR },
     },
 ];
 </script>
 
 <template>
-    <div class="bg-dark">
+    <div class="header__menu">
         <Item
             v-for="item in items"
             :key="item.id"
@@ -32,3 +37,5 @@ const items = [
         />
     </div>
 </template>
+
+<style src="./style.scss" lang="scss" scoped />
