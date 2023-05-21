@@ -7,6 +7,7 @@ export default {
 <script setup>
 import { useRouter } from 'vue-router';
 import { ROUTE_NAMES } from '@/constants/router.js';
+import TestButton from '@/components/ui/buttons/TestButton/index.vue';
 
 const router = useRouter();
 </script>
@@ -21,9 +22,9 @@ const router = useRouter();
             <p class="main-page__description">
                 Научись быстро печатать с клавиатурным тренажером Keyboard Online. А уроки слепой печати помогут тебе использовать все 10 пальцев.
             </p>
-            <button class="main-page__button" @click="router.push({ name: ROUTE_NAMES.TYPING_TUTOR })">
-                Начать печать
-            </button>
+            <TestButton @click="router.push({ name: ROUTE_NAMES.TYPING_TUTOR })">
+                Начать печатать
+            </TestButton>
         </div>
     </section>
 </template>

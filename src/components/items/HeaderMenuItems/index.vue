@@ -38,4 +38,4 @@ const props = defineProps({
     </component>
 </template>
 
-<style src="./style.scss" lang="scss" />
+<style src="./style.scss" lang="scss" scoped />

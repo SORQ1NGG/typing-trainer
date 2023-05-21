@@ -1,11 +1,16 @@
 <script>
-import FieldInput from '@/components/FieldInput/index.vue';
 export default {
     name: 'TutorTestPage',
-    components: { FieldInput },
 };
 </script>
 
+<script setup>
+import FieldInput from '@/components/fields/FieldInputTutor/index.vue';
+
+const str = 'напечатай этот текст и узнай свою скорость печати';
+
+</script>
+
 <template>
-    <FieldInput />
+    <FieldInput :field-of-text="str" />
 </template>

@@ -22,4 +22,4 @@ import LogoLink from '@/components/LogoLink/index.vue';
     </header>
 </template>
 
-<style src="./style.scss" lang="scss" />
+<style src="./style.scss" lang="scss" scoped />
