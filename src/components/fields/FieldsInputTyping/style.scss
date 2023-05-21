@@ -1,0 +1,106 @@
+.field {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  margin: calc-rem(30px) auto 0 auto;
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    border-radius: calc-rem(10px);
+    border-bottom: 1px solid $cBlue;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    height: 1px;
+    width: 100%;
+    font-size: calc-rem(16px);
+    overflow: hidden;
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    caret-color: transparent;
+    outline: 0;
+
+    &-text {
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: calc-rem(20px) calc-rem(10px) calc-rem(20px) calc-rem(30px);
+      background-color: $cWhite;
+      border-radius: calc-rem(10px);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      color: $cBlack;
+    }
+
+    &-str {
+      width: calc(100% - 155px);
+      overflow: hidden;
+      margin-right: calc-rem(30px);
+      font-size: calc-rem(21px);
+      line-height: calc-rem(32px);
+    }
+
+    &-stats {
+      color: $cLightGray;
+      font-size: calc-rem(12px);
+      text-transform: uppercase;
+      font-weight: 700;
+      padding-top: calc-rem(5px);
+
+      &_button {
+        padding: 0 calc-rem(19px);
+        background-image: url('@/assets/img/reload.png');
+        background-size: 15px auto;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: block;
+        color: $cYellowGreen;
+        text-decoration: none;
+      }
+
+      &__time {
+        background-image: url("@/assets/img/time.png");
+      }
+      &__speed {
+        background-image: url("@/assets/img/speed.png");
+      }
+      &__accuracy {
+        background-image: url("@/assets/img/accuracy.png");
+      }
+    }
+  }
+}
+
+.field-stat {
+  font-size: calc-rem(18px);
+  color: $cTurquoiseBlue;
+}
+
+.stat {
+  padding: calc-rem(5px) 0 calc-rem(5px) calc-rem(34px);
+  background-size: calc-rem(30px);
+  background-repeat: no-repeat;
+
+  &:not(:last-child) {
+    margin-bottom: calc-rem(10px);
+  }
+}
+
+.end {
+  display: flex;
+  font-size: calc-rem(20px);
+  font-weight: 700;
+  color: $cBlack;
+  justify-content: center;
+}

@@ -1,0 +1,21 @@
+.current-text .select-letter {
+  background-color: $cCorrect;
+}
+
+.select-letter {
+  color: $cWhite;
+}
+
+.current-text .select-letter {
+  padding: calc-rem(3px);
+  border-radius: calc-rem(3px);
+  color: $cWhite;
+}
+
+.current-text .letters .incorrect{
+  background-color: $cIncorrect;
+}
+
+.current-text .letters .passed {
+  color: $cPassed;
+}

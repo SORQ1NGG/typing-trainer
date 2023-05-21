@@ -20,8 +20,8 @@
   }
 
   &--active {
-    color: #fff;
+    color: $cWhite;
     opacity: 0.8;
-    background-color: #0e509e;
+    background-color: $cPearlLightGray;
   }
 }

@@ -3,13 +3,13 @@
   overflow: hidden;
   width: 90%;
   height: 85px;
-  background-color: #fff;
-  margin-top: 25px;
-  font-size: 27px;
-  line-height: 30px;
-  color: #4f4f4f;
-  border-radius: 10px;
-  border-top: 1px solid #d1d1d1;
+  background-color: $cWhite;
+  margin-top: calc-rem(25px);
+  font-size: calc-rem(27px);
+  line-height: calc-rem(30px);
+  color: $cWetAsphalt;
+  border-radius: calc-rem(10px);
+  border-top: 1px solid $cLightTelegray;
 
   &__inner {
     width: 100%;
@@ -21,7 +21,7 @@
 
   &__input {
     background-color: transparent;
-    padding: 0 20px 0 20px;
+    padding: 0 calc-rem(20px) 0 calc-rem(20px);
     position: absolute;
     left: 0;
     width: 100%;
@@ -47,7 +47,7 @@
     &-str {
       white-space: pre;
       display: inline;
-      color: #4f4f4f;
+      color: $cWetAsphalt;
       letter-spacing: .03ex;
     }
 
@@ -60,7 +60,7 @@
         top: -2px;
         width: 1px;
         height: 36px;
-        background: #000;
+        background: $cBlack;
         opacity: 1;
         z-index: 3;
 
@@ -70,6 +70,12 @@
         animation: cursor 1s infinite step-end;
       }
     }
+  }
+}
+
+.test-result {
+  &__speed {
+    margin-bottom: calc-rem(20px);
   }
 }
 

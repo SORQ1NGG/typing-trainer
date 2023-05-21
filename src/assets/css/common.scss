@@ -8,15 +8,19 @@ html {
   font-size: var(--rem)
 }
 
-h1, p {
+h1, h2, h3, h4, p {
   margin: 0;
   padding: 0;
+}
+
+span {
+  line-height: 1.375;
 }
 
 body {
   min-width: 375px;
   margin: 0;
-  background-color: #D3D3D3;
+  background-color: var(--cBody);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -25,7 +29,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
-  color: #F0FFFF;
+  color: $cSkyBlue;
   cursor: default;
 }
 
@@ -45,4 +49,9 @@ body {
 .img {
   height: 30%;
   width: 30%;
+}
+
+.disable {
+  opacity: 0.3;
+  pointer-events: none;
 }

@@ -12,21 +12,6 @@
     margin-bottom: calc-rem(15px);
     font-size: calc-rem(18px);
   }
-
-  &__button {
-    padding: calc-rem(12px) calc-rem(40px) calc-rem(10px);
-    border: none;
-    box-shadow: 0 0 0 4px rgba(87, 186, 238, 0.2);
-    cursor: pointer;
-    font-weight: 700;
-    text-shadow: 0 1px 1px #fff8c4;
-    text-transform: uppercase;
-    color: #0e509e;
-    background-image: linear-gradient(to bottom,#ffed2d,#ffde0e);
-    border-top: 1px solid #fff696;
-    border-bottom: 1px solid #ffce06;
-    background-color: #ffde0e;
-  }
 }
 
 .section {

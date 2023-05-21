@@ -4,7 +4,6 @@
   justify-content: center;
 }
 
-
 .card {
   display: flex;
   align-items: center;
@@ -12,16 +11,16 @@
   width: 198px;
   height: 200px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: calc-rem(10px);
   box-shadow: 0 3px 7px rgba(0,0,0,.3);
-  color: #fff;
+  color: $cWhite;
   font-family: Arial,Helvetica,sans-serif;
   font-weight: 300;
-  margin: 5px 3px;
+  margin: calc-rem(5px) calc-rem(3px);
   text-decoration: none;
   text-shadow: 0 0 5px rgba(0,0,0,.4);
   transition: transform .1s ease-out;
-  background: linear-gradient(135deg,#2998ff,#9b59b6);
+  background: linear-gradient(135deg, $cProtectiveBlue, $cAmethyst);
   cursor: pointer;
 
   &:hover {
