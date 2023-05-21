@@ -13,9 +13,14 @@ const routeOptions = [
         component: () => import('@/views/TypingTestPage/index.vue'),
         children: [
             {
+                path: '',
+                name: ROUTE_NAMES.TYPING_LIST,
+                component: () => import('@/components/TypingTest/index.vue'),
+            },
+            {
                 path: 'test',
-                name: ROUTE_NAMES.TEST_TYPING,
-                component: () => import('@/views/TypingTestPage/components/TestTyping/index.vue'),
+                name: ROUTE_NAMES.TEST,
+                component: () => import('@/components/TypingTest/components/TestTyping/index.vue'),
             },
         ],
     },
