@@ -7,9 +7,9 @@ class HttpError extends Error {
 }
 
 export async function fetchGet (url, headers) {
-    let payload = null;
-    const res = await fetch(url, { method: 'GET', headers });
-    payload = await res.json().catch(() => null);
-    if (res.ok) return { payload };
-    throw new HttpError(payload.message ?? res.statusText, res.status);
+    return fetch(url, { method: 'GET', headers }).then(async res => {
+        const response = await res.json().catch(() => null);
+        if (res.ok) return response;
+        throw new HttpError(response.message ?? res.statusText, res.status);
+    });
 }
