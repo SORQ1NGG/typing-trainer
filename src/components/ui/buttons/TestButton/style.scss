@@ -1,14 +1,19 @@
 .button {
+  transition: box-shadow 0.4s ease-in-out;
   padding: calc-rem(12px) calc-rem(40px) calc-rem(10px);
   border: none;
-  box-shadow: 0 0 0 4px rgba(87, 186, 238, 0.2);
   cursor: pointer;
   font-weight: 700;
   text-shadow: 0 1px 1px $cLemonCream;
   text-transform: uppercase;
-  color: $cTextButton;
+  color: $cWetAsphalt;
   background-image: linear-gradient(to bottom, $cZincYellow, $cCitric);
   border-top: 1px solid $cCanary;
   border-bottom: 1px solid $cDahliaYellow;
   background-color: $cCitric;
+
+  &:hover {
+    box-shadow: 0 0 0 4px rgba(87, 186, 238, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
+  }
 }
