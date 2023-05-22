@@ -10,9 +10,12 @@ import { BaconIpsum } from '@/api/bacon-ipsum.js';
 import FieldInputTyping from '@/components/fields/FieldsInputTyping/index.vue';
 
 const items = ref([]);
+const loading = ref(false);
 
 const getBaconIpsumText = async () => {
+    loading.value = true;
     items.value = await BaconIpsum.getBaconIpsumText();
+    loading.value = false;
 };
 
 onMounted(() => {
@@ -21,5 +24,5 @@ onMounted(() => {
 </script>
 
 <template>
-    <FieldInputTyping :field-of-text="items" />
+    <FieldInputTyping :field-of-text="items" :loading="loading" />
 </template>

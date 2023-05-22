@@ -6,15 +6,23 @@ export default {
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import CurrentLetter from '@/components/CurrentLetter/index.vue';
 import TestResult from '@/components/TestResult/index.vue';
+import BackButton from '@/components/ui/buttons/BackButton/index.vue';
+import CircleLaoder from '@/components/CircleLoader/index.vue';
 
 const props = defineProps({
     fieldOfText: {
         type: [Object, String],
         default: '',
     },
+    loading: {
+        type: Boolean,
+    },
 });
+
+const router = useRouter();
 
 const incorrectLetter = ref(false);
 const passedLetter = ref(false);
@@ -41,31 +49,33 @@ const handlerKey = e => {
     const { key } = e;
     currentKey.value = key;
     if (compareLetter(key)) {
-        incorrectLetter.value = true;
+        incorrectLetter.value = false;
         passedLetter.value = true;
-        nextStep();
+        nextStepLetter();
         if (selectLetter.value === 1) {
             startTest();
         } else if (selectLetter.value === props.fieldOfText.length - 1) {
             clearInterval(intervalId.value);
-            console.log('stop');
             testStart.value = false;
         }
     } else {
         incorrectLetterCount.value += 1;
+        incorrectLetter.value = true;
+    }
+    if (e.shiftKey) {
+        incorrectLetterCount.value = 0;
         incorrectLetter.value = false;
     }
-    console.log(selectLetter.value);
 };
 
-const nextStep = () => {
+const nextStepLetter = () => {
     if (selectLetter.value >= 0 && selectLetter.value <= props.fieldOfText.length) {
         selectLetter.value += 1;
     }
 };
 
 const isAccuracy = value => {
-    typingAccuracy.value = Math.round(100 - ((value / props.fieldOfText.length) * 100));
+    typingAccuracy.value = 100 - ((value / props.fieldOfText.length) * 100).toFixed(1);
 };
 
 const startTest = () => {
@@ -80,10 +90,10 @@ const startTest = () => {
 const reloadButton = () => {
     if (selectLetter.value !== 0) {
         selectLetter.value = 0;
-        testStart.value = false;
         typingAccuracy.value = 0;
         typingTime.value = 0;
         typingSpeed.value = 0;
+        testStart.value = false;
         clearInterval(intervalId.value);
     }
 };
@@ -98,6 +108,9 @@ onMounted(() => {
 <template>
     <section class="content-container">
         <div class="field">
+            <div class="field__button-back">
+                <BackButton @click="router.go(-1)" />
+            </div>
             <div class="field__inner">
                 <input
                     class="field__input"
@@ -106,9 +119,12 @@ onMounted(() => {
                     type="text"
                 >
                 <div class="field__input-text">
-                    <div class="field__input-str">
+                    <div v-if="props.loading" class="field__input-loading">
+                        <CircleLaoder />
+                    </div>
+                    <div v-else class="field__input-str">
                         <CurrentLetter
-                            :incorrect-letter="!incorrectLetter"
+                            :incorrect-letter="incorrectLetter"
                             :passed-letter="passedLetter"
                             :select-letter="selectLetter"
                             :line-of-text="props.fieldOfText"
