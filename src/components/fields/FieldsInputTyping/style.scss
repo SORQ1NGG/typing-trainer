@@ -4,6 +4,13 @@
   width: 100%;
   margin: calc-rem(30px) auto 0 auto;
 
+  &__button-back {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+
   &__inner {
     position: relative;
     width: 100%;
@@ -24,6 +31,13 @@
     background-color: transparent;
     caret-color: transparent;
     outline: 0;
+
+    &-loading {
+      width: 635px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
 
     &-text {
       display: flex;

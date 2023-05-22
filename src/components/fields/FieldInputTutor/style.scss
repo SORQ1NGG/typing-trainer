@@ -74,7 +74,10 @@
 }
 
 .test-result {
-  &__speed {
+  &__title {
+    margin: calc-rem(10px) 0 calc-rem(10px) 0
+  }
+  &__data {
     margin-bottom: calc-rem(20px);
   }
 }
