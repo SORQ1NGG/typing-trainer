@@ -5,12 +5,12 @@ export default {
 </script>
 
 <script setup>
-import FieldInput from '@/components/fields/FieldInputTutor/index.vue';
+import FieldInputTutor from '@/components/fields/FieldInputTutor/index.vue';
 
 const str = 'напечатай этот текст и узнай свою скорость печати';
 
 </script>
 
 <template>
-    <FieldInput :field-of-text="str" />
+    <FieldInputTutor :field-of-text="str" />
 </template>

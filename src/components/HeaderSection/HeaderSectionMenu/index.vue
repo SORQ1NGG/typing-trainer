@@ -17,7 +17,7 @@ const items = [
     {
         id: 'typing-test',
         text: 'Тестирование',
-        to: { name: ROUTE_NAMES.TYPING_TEST },
+        to: { name: ROUTE_NAMES.TYPING_LIST },
     },
     {
         id: 'typing-tutor',

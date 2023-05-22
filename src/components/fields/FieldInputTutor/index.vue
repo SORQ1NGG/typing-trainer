@@ -19,8 +19,6 @@ const props = defineProps({
     },
 });
 
-// const emit = defineEmits(['test-result']);
-
 const router = useRouter();
 
 const incorrectLetter = ref(false);
@@ -48,7 +46,7 @@ const handlerKey = e => {
     currentKey.value = key;
     if (compareLetter(key)) {
         incorrectLetter.value = true;
-        nextStep();
+        nextStepLetter();
         if (selectLetter.value === 1) {
             passedLetter.value = true;
             startTest();
@@ -62,7 +60,7 @@ const handlerKey = e => {
     }
 };
 
-const nextStep = () => {
+const nextStepLetter = () => {
     if (selectLetter.value >= 0 && selectLetter.value <= props.fieldOfText.length) {
         selectLetter.value += 1;
     }
@@ -94,7 +92,6 @@ onMounted(() => {
                     type="text"
                 >
                 <div class="field__input-text">
-                    <div v-show="false" class="field__input-cursor" />
                     <div class="field__input-str">
                         <CurrentLetter
                             :passed-letter="passedLetter"
@@ -117,7 +114,7 @@ onMounted(() => {
                     </div>
                 </div>
             </TestResult>
-            <TestButton @click="router.push({ name: ROUTE_NAMES.TYPING_TEST })">
+            <TestButton @click="router.push({ name: ROUTE_NAMES.TYPING_LIST })">
                 Улучшить скорость печати
             </TestButton>
         </div>
