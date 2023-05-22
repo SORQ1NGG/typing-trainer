@@ -1,6 +1,6 @@
-# typing-test
+# Typing Test Project
 
-
+Vite + Vue 3 + JavaScript
 
 ## To clone a repository locally
 ```
