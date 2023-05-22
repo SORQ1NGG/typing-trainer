@@ -7,6 +7,11 @@
 https://github.com/SORQ1NGG/typing-trainer.git
 ```
 
+## Navigate to the project folder
+```
+cd typing-project
+```
+
 ## Project setup
 ```
 npm install
