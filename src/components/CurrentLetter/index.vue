@@ -6,6 +6,7 @@ export default {
 
 <script setup>
 import { computed } from 'vue';
+import CircleLoader from '@/components/CircleLoader/index.vue';
 
 const props = defineProps({
     selectLetter: {
@@ -18,16 +19,19 @@ const props = defineProps({
     passedLetter: {
         type: Boolean,
     },
-    lineOfText: {
-        type: String,
-        default: '',
+    items: {
+        type: Array,
+        default: () => [],
+    },
+    loading: {
+        type: Boolean,
     },
 });
 
 const isString = computed(() => {
     const resultString = [];
     let i = 0;
-    props.lineOfText.toString().split('').map(letter => {
+    props.items.toString().split('').forEach(letter => {
         resultString.push({ id: i, char: letter });
         i = i + 1;
     });
@@ -36,7 +40,10 @@ const isString = computed(() => {
 </script>
 
 <template>
-    <div class="current-text">
+    <div v-if="props.loading" class="field__input-loading">
+        <CircleLoader />
+    </div>
+    <div v-else class="current-text">
         <span v-for="item in isString" :key="item.id" class="letters">
             <span v-if="item.id === props.selectLetter">
                 <span class="select-letter" :class="{incorrect: props.incorrectLetter}">

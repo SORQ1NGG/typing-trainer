@@ -20,7 +20,7 @@ const routeOptions = [
             {
                 path: 'test',
                 name: ROUTE_NAMES.TEST,
-                component: () => import('@/components/TypingTest/components/TestTyping/index.vue'),
+                component: () => import('@/components/fields/FieldsInputTyping/index.vue'),
             },
         ],
     },
