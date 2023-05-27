@@ -27,7 +27,7 @@ const routeOptions = [
     {
         path: '/typing-tutor/',
         name: ROUTE_NAMES.TYPING_TUTOR,
-        component: () => import('@/views/TutorTestPage/index.vue'),
+        component: () => import('@/components/fields/FieldInputTutor/index.vue'),
     },
 ];
 

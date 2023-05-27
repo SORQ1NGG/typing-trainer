@@ -5,79 +5,32 @@ export default {
 </script>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { ROUTE_NAMES } from '@/constants/router.js';
 import CurrentLetter from '@/components/CurrentLetter/index.vue';
 import TestResult from '@/components/TestResult/index.vue';
 import TestButton from '@/components/ui/buttons/TestButton/index.vue';
+import { useFields } from '@/composables/field-input.js';
 
-const props = defineProps({
-    fieldOfText: {
-        type: String,
-        default: '',
-    },
-});
+const {
+    handlerKey,
+    typingSpeed,
+    items,
+    incorrectLetter,
+    selectLetter,
+    passedLetter,
+} = useFields();
 
 const router = useRouter();
+items.value = 'напечатай этот текст и узнай свою скорость печати';
 
-const incorrectLetter = ref(false);
-const passedLetter = ref(false);
-const testStart = ref(false);
-const currentKey = ref(null);
-const intervalId = ref(null);
-const incorrectLetterCount = ref(1);
-const selectLetter = ref(0);
-const typingSpeed = ref(0);
-const typingTime = ref(0);
+onMounted(async () => {
+    document.addEventListener('keydown', handlerKey);
+});
 
-const compareLetter = char => {
-    if (selectLetter.value <= props.fieldOfText.length - 1) {
-        const correctLetter = props.fieldOfText[selectLetter.value];
-        return correctLetter === char;
-    } else if (selectLetter.value === props.fieldOfText.length - 1) {
-        clearInterval(intervalId.value);
-        testStart.value = false;
-    }
-};
-
-const handlerKey = e => {
-    const { key } = e;
-    currentKey.value = key;
-    if (compareLetter(key)) {
-        incorrectLetter.value = true;
-        nextStepLetter();
-        if (selectLetter.value === 1) {
-            passedLetter.value = true;
-            startTest();
-        } else if (selectLetter.value === props.fieldOfText.length - 1) {
-            clearInterval(intervalId.value);
-            testStart.value = false;
-        }
-    } else {
-        incorrectLetterCount.value += 1;
-        incorrectLetter.value = false;
-    }
-};
-
-const nextStepLetter = () => {
-    if (selectLetter.value >= 0 && selectLetter.value <= props.fieldOfText.length) {
-        selectLetter.value += 1;
-    }
-};
-
-const startTest = () => {
-    intervalId.value = setInterval(() => {
-        typingTime.value += 1;
-        typingSpeed.value = Math.round(selectLetter.value / typingTime.value * 60);
-    }, 1000);
-    testStart.value = true;
-};
-
-onMounted(() => {
-    document.addEventListener('keydown', e => {
-        handlerKey(e);
-    });
+onUnmounted(() => {
+    document.removeEventListener('keydown', handlerKey);
 });
 </script>
 
@@ -95,15 +48,15 @@ onMounted(() => {
                     <div class="field__input-str">
                         <CurrentLetter
                             :passed-letter="passedLetter"
-                            :incorrect-letter="!incorrectLetter"
+                            :incorrect-letter="incorrectLetter"
                             :select-letter="selectLetter"
-                            :line-of-text="props.fieldOfText"
+                            :items="items"
                         />
                     </div>
                 </div>
             </div>
         </div>
-        <div v-if="selectLetter === props.fieldOfText.length">
+        <div v-if="selectLetter === items.length">
             <TestResult>
                 <div class="test-result__title">
                     <h2>Результаты теста</h2>
